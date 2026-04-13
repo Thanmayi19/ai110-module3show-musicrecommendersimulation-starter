@@ -17,7 +17,7 @@ Prompts:
 - What assumptions does it make about the user
 - Is this for real users or classroom exploration
 
-## This model suggests up to 5 songs from an 18-song catalog based on a user's preferred genre, mood, energy level, tempo, and danceability. It is built for classroom exploration of how recommender systems work not for real users or production use. It assumes the user can describe their preferences numerically and that a single "favorite genre" accurately captures their taste.
+This model suggests up to 5 songs from an 18-song catalog based on a user's preferred genre, mood, energy level, tempo, and danceability. It is built for classroom exploration of how recommender systems work not for real users or production use. It assumes the user can describe their preferences numerically and that a single "favorite genre" accurately captures their taste.
 
 ## 3. How the Model Works
 
@@ -49,7 +49,7 @@ Prompts:
 - Did you add or remove data
 - Are there parts of musical taste missing in the dataset
 
-## The catalog contains 18 songs across 12 genres: pop, lofi, rock, ambient, jazz, synthwave, indie pop, classical, metal, r&b, electronic, and country. Moods represented include happy, chill, intense, relaxed, moody, focused, melancholic, romantic, aggressive, euphoric, and sad. No songs were removed from the starter dataset. The data skews toward Western popular music styles and does not represent non-Western genres, non-English language music, or niche subgenres. Lofi is the most represented genre with 3 songs; most genres have only 1 representative.
+The catalog contains 18 songs across 12 genres: pop, lofi, rock, ambient, jazz, synthwave, indie pop, classical, metal, r&b, electronic, and country. Moods represented include happy, chill, intense, relaxed, moody, focused, melancholic, romantic, aggressive, euphoric, and sad. No songs were removed from the starter dataset. The data skews toward Western popular music styles and does not represent non-Western genres, non-English language music, or niche subgenres. Lofi is the most represented genre with 3 songs; most genres have only 1 representative.
 
 ## 5. Strengths
 
@@ -61,7 +61,7 @@ Prompts:
 - Any patterns you think your scoring captures correctly
 - Cases where the recommendations matched your intuition
 
-## The system works well for users whose preferences sit in the middle of the catalog's range moderate energy, common genres like pop or jazz. The scoring is fully transparent: every recommendation comes with a reasons list explaining exactly which signals contributed and how much. The genre and mood gates act as strong, intuitive anchors if a user asks for jazz, jazz songs reliably appear at the top as long as their continuous preferences don't conflict heavily.
+The system works well for users whose preferences sit in the middle of the catalog's range moderate energy, common genres like pop or jazz. The scoring is fully transparent: every recommendation comes with a reasons list explaining exactly which signals contributed and how much. The genre and mood gates act as strong, intuitive anchors if a user asks for jazz, jazz songs reliably appear at the top as long as their continuous preferences don't conflict heavily.
 
 ## 6. Limitations and Bias
 
@@ -82,7 +82,7 @@ Genre frequency imbalance. Lofi has 3 songs while most genres have only 1. A lof
 
 Single-mood and single-genre inputs. The system assumes every user has exactly one favorite genre and one favorite mood. Users who enjoy variety, whose taste crosses genres, or who don't care about mood at all are not well served. There is no way to say "mood doesn't matter" or "I like both jazz and r&b."
 
-## No diversity enforcement. The top-k selection is purely greedy, the highest-scoring songs win, even if they are all by the same artist or in the same genre.
+No diversity enforcement. The top-k selection is purely greedy, the highest-scoring songs win, even if they are all by the same artist or in the same genre.
 
 ## 7. Evaluation
 
