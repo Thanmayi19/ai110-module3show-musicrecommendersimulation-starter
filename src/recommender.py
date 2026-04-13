@@ -72,18 +72,18 @@ def score_song(user_prefs: Dict, song: Song) -> Tuple[float, List[str]]:
     total = 0.0
     reasons = []
 
-    # Genre match — categorical, case-insensitive (+2.0)
+    # Genre match — categorical, case-insensitive (+1.0)  # EXPERIMENT: was +2.0
     if song.genre.lower() == user_prefs["favorite_genre"].lower():
-        total += 2.0
-        reasons.append("Genre match (+2.0)")
+        total += 1.0  # EXPERIMENT: was 2.0
+        reasons.append("Genre match (+1.0)")
 
     # Mood match — categorical, case-insensitive (+1.0)
     if song.mood.lower() == user_prefs["favorite_mood"].lower():
         total += 1.0
         reasons.append("Mood match (+1.0)")
 
-    # Energy proximity — Gaussian with σ = 0.2, max +1.0
-    energy_score = math.exp(
+    # Energy proximity — Gaussian with σ = 0.2, max +2.0  # EXPERIMENT: multiplier was 1.0 (no multiply), now 2.0
+    energy_score = 2.0 * math.exp(  # EXPERIMENT: was math.exp(...) with no multiplier
         -((song.energy - user_prefs["target_energy"]) ** 2) / (2 * 0.2 ** 2)
     )
     total += energy_score

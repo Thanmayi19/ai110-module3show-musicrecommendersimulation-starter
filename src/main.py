@@ -17,7 +17,7 @@ if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
     sys.stdout.reconfigure(encoding="utf-8")
 
 WIDTH = 52
-MAX_SCORE = 5.5   # 2.0 genre + 1.0 mood + 1.0 energy + 1.0 tempo + 0.5 danceability
+MAX_SCORE = 5.5   # EXPERIMENT: 1.0 genre + 1.0 mood + 2.0 energy + 1.0 tempo + 0.5 danceability
 BAR_WIDTH = 20    # number of block characters at full score
 
 
@@ -60,12 +60,13 @@ def main() -> None:
     songs = load_songs("data/songs.csv")
 
     user_prefs = {
-        "favorite_genre": "pop",
-        "favorite_mood": "happy",
-        "target_energy": 0.8,
-        "target_tempo_bpm": 120,
-        "target_danceability": 0.75,
+    "favorite_genre": "ambient",
+    "favorite_mood": "chill",
+    "target_energy": 0.0,
+    "target_tempo_bpm": 0,
+    "target_danceability": 0.0,
     }
+
 
     recommendations = recommend_songs(user_prefs, songs, k=5)
 
