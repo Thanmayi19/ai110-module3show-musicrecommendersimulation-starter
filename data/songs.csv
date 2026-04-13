@@ -9,3 +9,11 @@ id,title,artist,genre,mood,energy,tempo_bpm,valence,danceability,acousticness
 8,Night Drive Loop,Neon Echo,synthwave,moody,0.75,110,0.49,0.73,0.22
 9,Focus Flow,LoRoom,lofi,focused,0.40,80,0.59,0.60,0.78
 10,Rooftop Lights,Indigo Parade,indie pop,happy,0.76,124,0.81,0.82,0.35
+11,Autumn Sonata in G,Clara Voss,classical,melancholic,0.25,58,0.22,0.18,0.98
+12,Blood and Thunder,Iron Veil,metal,aggressive,0.97,168,0.31,0.55,0.02
+13,Silk and Candlelight,Dara Monroe,r&b,romantic,0.58,88,0.79,0.82,0.34
+14,Supernova Rush,Freq District,electronic,euphoric,0.92,138,0.91,0.94,0.04
+15,Gravel Road Home,Dusty Vale,country,sad,0.44,84,0.28,0.47,0.82
+16,Blue Hour Blues,The Sable Trio,jazz,melancholic,0.32,68,0.35,0.43,0.85
+17,Moonrise Concerto,Clara Voss,classical,romantic,0.61,96,0.88,0.24,0.96
+18,Empty Side of the Bed,Dara Monroe,r&b,sad,0.45,72,0.24,0.58,0.41
