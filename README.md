@@ -99,35 +99,41 @@ This is the finalized scoring strategy derived from analyzing the full catalog. 
 
 ### Step 1 — Categorical gates (exact string match)
 
-| Signal | Points | Notes |
-|--------|--------|-------|
-| Genre match | **+5** | Strongest stable preference; a jazz fan won't enjoy metal even if the mood fits |
-| Mood match | **+4** | High-intent situational signal; should outweigh all continuous features combined |
+| Signal      | Points | Notes                                                                            |
+| ----------- | ------ | -------------------------------------------------------------------------------- |
+| Genre match | **+5** | Strongest stable preference; a jazz fan won't enjoy metal even if the mood fits  |
+| Mood match  | **+4** | High-intent situational signal; should outweigh all continuous features combined |
 
 ### Step 2 — Gaussian continuous similarity
 
 For each continuous feature, compute `gaussian_sim(user_val, song_val, σ) = exp(-((user_val - song_val)² / (2σ²)))` then multiply by the max points for that feature.
 
-| Feature | Max points | σ | Rationale |
-|---------|-----------|---|-----------|
-| `energy` | **×3** | 0.20 | Spans full [0.25–0.97] range in catalog; most discriminative continuous axis |
-| `valence` | **×2** | 0.20 | Independent emotional tone; not captured by mood alone |
-| `danceability` | **×1** | 0.25 | Distinguishes groove-heavy r&b from classical at similar energy levels |
+| Feature        | Max points | σ    | Rationale                                                                    |
+| -------------- | ---------- | ---- | ---------------------------------------------------------------------------- |
+| `energy`       | **×3**     | 0.20 | Spans full [0.25–0.97] range in catalog; most discriminative continuous axis |
+| `valence`      | **×2**     | 0.20 | Independent emotional tone; not captured by mood alone                       |
+| `danceability` | **×1**     | 0.25 | Distinguishes groove-heavy r&b from classical at similar energy levels       |
 
 **Max possible score: 5 + 4 + 3 + 2 + 1 = 15 points**
 
 ### Step 3 — Features to exclude
 
-| Feature | Reason to skip |
-|---------|---------------|
+| Feature        | Reason to skip                                                                                                           |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------ |
 | `acousticness` | Near-perfect inverse of `energy` in this catalog (≈ `1 − energy`); weighting it separately double-counts the same signal |
-| `tempo_bpm` | Nearly linear with `energy` across all 18 songs; adds noise rather than information |
+| `tempo_bpm`    | Nearly linear with `energy` across all 18 songs; adds noise rather than information                                      |
 
 ### Step 4 — Rank and return
 
 Sort `scored_songs` by total score descending; return the top `k` entries.
 
 ---
+
+![Profile 1 - Ghost Genre](screenshots/M-1.png)
+![Profile 2 - Energy Floor](screenshots/M-2.png)
+![Profile 3 - Conflicting Signals](screenshots/M-3.png)
+![Profile 4 - Hypersonic Tempo](screenshots/M-4.png)
+![Profile 5 - All Zeros](screenshots/M-5.png)
 
 ## Getting Started
 
